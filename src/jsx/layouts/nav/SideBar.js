@@ -749,10 +749,20 @@ class SideBar extends Component {
           </MM>
 			<div className="copyright">
 				<p>
-				  <strong>User name Dashboard</strong>
+				  <strong>Jobie  Admin Dashboard</strong> <br/>© 2021 All
+				  Rights Reserved
 				</p>
 				<p>
-          Copyright © 2019 to 2022 Canada Freelancer Ltd.
+				  Made with{" "}
+				  <span
+					className={`${
+					  this.state.loveEmoji ? "heart heart-blast" : "heart"
+					}`}
+					onClick={() =>
+					  this.setState({ loveEmoji: !this.state.loveEmoji })
+					}
+				  ></span>{" "}
+				  by DexignZone
 				</p>
 			  </div>
 			</PerfectScrollbar>

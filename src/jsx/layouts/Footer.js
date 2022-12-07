@@ -5,7 +5,11 @@ const Footer = () => {
     <div className="footer">
       <div className="copyright">
         <p>
-          Copyright © 2019 to 2022 Canada Freelancer Ltd.
+          Copyright © Designed &amp; Developed by{" "}
+          <a href="http://dexignzone.com/" target="_blank"  rel="noreferrer">
+            DexignZone
+          </a>{" "}
+          2021
         </p>
       </div>
     </div>
