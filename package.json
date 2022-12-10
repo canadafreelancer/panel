@@ -86,6 +86,7 @@
     "sweetalert": "^2.1.2",
     "sweetalert2": "^10.10.4",
     "web-vitals": "^0.2.4",
+    "wrangler": "^2.6.1",
     "yup": "^0.32.8"
   },
   "scripts": {
