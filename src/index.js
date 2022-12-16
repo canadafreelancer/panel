@@ -18,7 +18,6 @@ ReactDOM.render(
                     <ThemeContext>
                         <App />
                     </ThemeContext>  
-                 { /*   <App /> */  }
                 </BrowserRouter>    
             </SimpleReactLightbox>
         </Provider>	
