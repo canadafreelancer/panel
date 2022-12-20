@@ -61,20 +61,15 @@ class SideBar extends Component {
         "app-calender",
         "ecom-product-grid",
         "ecom-product-list",
-        "ecom-product-list",
         "post-details",
         "ecom-product-detail",
       ],
       email = ["email-compose", "email-inbox", "email-read"],
       shop = [
-        "ecom-product-grid",
-        "ecom-product-list",
-        "ecom-product-list",
         "ecom-product-order",
         "ecom-checkout",
         "ecom-invoice",
         "ecom-customers",
-        "ecom-product-detail",
       ];
 
     return (
@@ -143,6 +138,23 @@ class SideBar extends Component {
                   <Link className="has-arrow" to="#" >
                     Shop
                   </Link>
+                  <ul >
+                  <li>
+                    <Link className={`${path === "ecom-product-grid" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/ecom-product-grid">Product Grid</Link>
+                  </li>
+                  <li>
+                    <Link className={`${path === "ecom-product-list" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/ecom-product-list">Product List</Link>
+                  </li>
+                  <li>
+                    <Link
+                      className={`${path === "ecom-product-detail" ? "mm-active" : ""}`}
+                      onClick={() => this.props.onClick()}
+                      to="/ecom-product-detail"
+                    >
+                      Product Detail
+                    </Link>
+                  </li>
+                  </ul>
                 </li>
               </ul>
             </li>
