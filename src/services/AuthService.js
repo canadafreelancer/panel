@@ -33,6 +33,14 @@ export function login(email, password) {
     );
 }
 
+export function login_cf(username, password){
+    return axios.post(
+        `https://api.canadafreelancer.com/wp-json/api/v1/user/do_login`,
+        {username: username, 
+        password: password}
+    )
+}
+
 export function formatError(errorResponse) {
     switch (errorResponse.error.message) {
         case 'EMAIL_EXISTS':

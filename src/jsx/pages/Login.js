@@ -9,10 +9,12 @@ import logo from '../../images/logo.png'
 import logotext from '../../images/logo-text.png'
 
 function Login (props) {
-    const [email, setEmail] = useState('demo@example.com');
+    const [email, setEmail] = useState('hello@canadafreelancer.com');
+		// example id : demo@example.com
     let errorsObj = { email: '', password: '' };
     const [errors, setErrors] = useState(errorsObj);
-    const [password, setPassword] = useState('123456');
+    const [password, setPassword] = useState('B7ZH8iDhfjNRzY(OyvDX2GnO');
+		// example pass : 123456
     const dispatch = useDispatch();
 
     function onLogin(e) {

@@ -1,6 +1,7 @@
 import {
     formatError,
     login,
+    login_cf,
     runLogoutTimer,
     saveTokenInLocalStorage,
     signUp,
@@ -43,8 +44,27 @@ export function logout(history) {
 
 export function loginAction(email, password, history) {
     return (dispatch) => {
-        login(email, password)
-            .then((response) => {
+        // login(email, password)
+        //     .then((response) => {
+        //         saveTokenInLocalStorage(response.data);
+        //         runLogoutTimer(
+        //             dispatch,
+        //             response.data.expiresIn * 1000,
+        //             history,
+        //         );
+        //         dispatch(loginConfirmedAction(response.data));
+		// 		history.push('/dashboard');
+		// 		//window.location.reload();
+                
+		// 		//history.pushState('/index');
+                
+        //     })
+        //     .catch((error) => {
+        //         const errorMessage = formatError(error.response.data);
+        //         dispatch(loginFailedAction(errorMessage));
+        //     });
+        login_cf(email, password)
+            .then(response => {
                 saveTokenInLocalStorage(response.data);
                 runLogoutTimer(
                     dispatch,
@@ -52,11 +72,8 @@ export function loginAction(email, password, history) {
                     history,
                 );
                 dispatch(loginConfirmedAction(response.data));
-				history.push('/dashboard');
-				//window.location.reload();
-                
-				//history.pushState('/index');
-                
+                history.push('/dashboard');
+                console.log(response.data)
             })
             .catch((error) => {
                 const errorMessage = formatError(error.response.data);
