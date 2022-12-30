@@ -65,7 +65,7 @@ export function formatError(errorResponse) {
 
 export function saveTokenInLocalStorage(tokenDetails) {
     tokenDetails.expireDate = new Date(
-        new Date().getTime() + tokenDetails.expiresIn * 1000,
+        new Date().getTime() + 3600 * 1000,
     );
     localStorage.setItem('userDetails', JSON.stringify(tokenDetails));
 }
