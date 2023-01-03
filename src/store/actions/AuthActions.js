@@ -65,6 +65,7 @@ export function loginAction(email, password, history) {
         //     });
         login_cf(email, password)
             .then(response => {
+                console.log(response.data)
                 saveTokenInLocalStorage(response.data);
                 runLogoutTimer(
                     dispatch,
@@ -73,7 +74,6 @@ export function loginAction(email, password, history) {
                 );
                 dispatch(loginConfirmedAction(response.data));
                 history.push('/dashboard');
-                console.log(response.data)
             })
             .catch((error) => {
                 const errorMessage = formatError(error.response.data);

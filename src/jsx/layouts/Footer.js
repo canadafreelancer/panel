@@ -5,7 +5,7 @@ const Footer = () => {
     <div className="footer">
       <div className="copyright">
         <p>
-          Copyright © 2019 to 2022 Canada Freelancer Ltd.
+          Copyright © 2019 to 2023 Canada Freelancer Ltd.
         </p>
       </div>
     </div>

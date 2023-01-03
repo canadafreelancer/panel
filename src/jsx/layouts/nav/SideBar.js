@@ -254,7 +254,7 @@ class SideBar extends Component {
               <strong>User name Dashboard</strong>
             </p>
             <p>
-              Copyright © 2019 to 2022 Canada Freelancer Ltd.
+              Copyright © 2019 to 2023 Canada Freelancer Ltd.
             </p>
           </div>
         </PerfectScrollbar>
