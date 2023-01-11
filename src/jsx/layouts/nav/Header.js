@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 /// Scroll
@@ -9,6 +10,8 @@ import profile from "../../../images/profile/17.jpg";
 import avatar from "../../../images/avatar/1.jpg";
 
 const Header = ({ onNote, toggle, onProfile, onNotification }) => {
+   const authState = useSelector(state => state.auth);
+   console.log(authState.auth.profile.billing.first_name);
    var path = window.location.pathname.split("/");
    var name = path[path.length - 1].split("-");
    var filterName = name.length >= 3 ? name.filter((n, i) => i > 0) : name;
@@ -249,7 +252,7 @@ const Header = ({ onNote, toggle, onProfile, onNotification }) => {
                         >
                            <img src={profile} width="20" alt="" />
                            <div className="header-info">
-                              <span className="text-black">Oda Dink</span>
+                              <span className="text-black">{authState.auth.profile.billing.first_name} {authState.auth.profile.billing.last_name}</span>
                               <p className="fs-12 mb-0">Super Admin</p>
                            </div>
                         </Link>
