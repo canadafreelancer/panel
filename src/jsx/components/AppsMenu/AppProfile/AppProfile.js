@@ -2,6 +2,7 @@ import React, { Fragment, useState } from "react";
 import { Button, Dropdown, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { SRLWrapper } from "simple-react-lightbox";
+import { useSelector } from "react-redux";
 //** Import Image */
 import profile01 from "../../../../images/profile/1.jpg";
 import profile02 from "../../../../images/profile/2.jpg";
@@ -21,8 +22,9 @@ const AppProfile = () => {
   const [postModal, setPostModal] = useState(false);
   const [cameraModal, setCameraModal] = useState(false);
   const [linkModal, setLinkModal] = useState(false);
-
   const [replayModal, setReplayModal] = useState(false);
+	const profileState = useSelector(state => state.auth);
+	console.log(profileState.auth.profile);
 
   const options = {
     settings: {
@@ -38,24 +40,33 @@ const AppProfile = () => {
           <div className="profile card card-body px-3 pt-3 pb-0">
             <div className="profile-head">
               <div className="photo-content">
-                <div className="cover-photo"></div>
+                <div className="cover-photo" style={{backgroundImage: `url(${profileState.auth.profile.pmeta.banner_img}`}}></div>
               </div>
               <div className="profile-info">
                 <div className="profile-photo">
                   <img
-                    src={profile}
+                    // src={profile}
+										src={profileState.auth.profile.pmeta.profile_img}
                     className="img-fluid rounded-circle"
                     alt="profile"
                   />
                 </div>
                 <div className="profile-details">
                   <div className="profile-name px-3 pt-2">
-                    <h4 className="text-primary mb-0">Mitchell C. Shay</h4>
-                    <p>UX / UI Designer</p>
+                    <h4 className="text-primary mb-0">{profileState.auth.profile.pmeta._gender}.{profileState.auth.profile.pmeta.full_name}</h4>
+                    <p>{profileState.auth.profile.pmeta.user_type}</p>
                   </div>
                   <div className="profile-email px-2 pt-2">
-                    <h4 className="text-muted mb-0">hello@email.com</h4>
+                    <h4 className="text-muted mb-0">{profileState.auth.profile.billing.email}</h4>
                     <p>Email</p>
+                  </div>
+                  <div className="profile-phone px-2 pt-2">
+                    <h4 className="text-muted mb-0">+1{profileState.auth.profile.billing.phone}</h4>
+                    <p>Phone number</p>
+                  </div>
+                  <div className="profile-location px-2 pt-2">
+                    <h4 className="text-muted mb-0">{profileState.auth.profile.billing.country}/{profileState.auth.profile.billing.city}</h4>
+                    <p>Country/City</p>
                   </div>
                   <Dropdown className="dropdown ml-auto">
                     <Dropdown.Toggle

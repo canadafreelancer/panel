@@ -11,7 +11,6 @@ import avatar from "../../../images/avatar/1.jpg";
 
 const Header = ({ onNote, toggle, onProfile, onNotification }) => {
    const authState = useSelector(state => state.auth);
-   console.log(authState.auth.profile.billing.first_name);
    var path = window.location.pathname.split("/");
    var name = path[path.length - 1].split("-");
    var filterName = name.length >= 3 ? name.filter((n, i) => i > 0) : name;
@@ -116,7 +115,7 @@ const Header = ({ onNote, toggle, onProfile, onNotification }) => {
                               />
                            </svg>
                            <span className="badge light text-white bg-primary rounded-circle">
-                              52
+                              {authState.auth.profile.unread_notification_count}
                            </span>
                         </Link>
                         <div
@@ -250,10 +249,10 @@ const Header = ({ onNote, toggle, onProfile, onNotification }) => {
                            role="button"
                            data-toggle="dropdown"
                         >
-                           <img src={profile} width="20" alt="" />
+                           <img src={authState.auth.profile.pmeta.profile_img} width="20" alt="" />
                            <div className="header-info">
                               <span className="text-black">{authState.auth.profile.billing.first_name} {authState.auth.profile.billing.last_name}</span>
-                              <p className="fs-12 mb-0">Super Admin</p>
+                              <p className="fs-12 mb-0">{authState.auth.profile.pmeta.user_type}</p>
                            </div>
                         </Link>
                         <div
